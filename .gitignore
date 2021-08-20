@@ -1,0 +1,5 @@
+/.vscode
+test.py
+test2.py
+/design/__pycache__
+/modules/__pycache__
