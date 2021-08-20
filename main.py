@@ -25,15 +25,16 @@ class LoginForm(QtWidgets.QMainWindow, Ui_login.Ui_MainWindow):
         self.server = Server(self)
         self.server.connect()
 
-        self.pushButton.clicked.connect(self.on_click)
+        self.loginBtn.clicked.connect(self.on_click)
         
 
         self.setWindowIcon(QIcon("./res/icons8-anonymous-mask-96.png"))
 
-        self.label.mousePressEvent = self.openRegister
-        self.label_2.mousePressEvent = self.openLogin
-        self.loginObjects = [self.lineEdit,self.lineEdit_2,self.checkBox,self.label,self.pushButton]
-        self.registerObjects = [self.label_2,self.pushButton_2,self.lineEdit_3,self.lineEdit_4,self.lineEdit_5]
+        self.registerLabel.mousePressEvent = self.openRegister
+        self.loginLabel.mousePressEvent = self.openLogin
+        self.loginObjects = [self.loginAuthorization,self.passwordAuthorization,self.rememberMe,self.registerLabel,self.loginBtn]
+        self.registerObjects = [self.loginLabel,self.registerBtn,self.passwordRegister,self.loginRegister,self.screenNameRegister]
+
         self.openLogin()
 
     def setOpacity(self,element,opacity):
@@ -51,18 +52,6 @@ class LoginForm(QtWidgets.QMainWindow, Ui_login.Ui_MainWindow):
         element.animation.setEndValue(end)
         
         element.animation.start()
-
-    def doShow(self):
-        self.animation = QPropertyAnimation(self.pushButton, b'geometry')
-        try:
-            self.animation.finished.disconnect(self.close)
-        except:
-            pass
-        self.animation.stop()
-        # Диапазон прозрачности постепенно увеличивается от 0 до 1.
-        self.animation.setStartValue(self.pushButton.geometry())
-        self.animation.setEndValue(self.pushButton.geometry().translated(200, 0))
-        self.animation.start()
 
     def on_click(self):
         self.Messenger.show()
@@ -103,27 +92,27 @@ class Messenger(QtWidgets.QMainWindow, Ui_messenger.Ui_MainWindow):
 
         for i in entries:
             item = QtWidgets.QListWidgetItem(i['name'])
-            self.listWidget.addItem(item)
+            self.usersList.addItem(item)
             item.setData(-1, i)
 
-        # self.listWidget.addItems(entries)
-        self.listWidget.installEventFilter(self)
+        # self.usersList.addItems(entries)
+        self.usersList.installEventFilter(self)
 
-        self.label.setText('''<h3 style="padding:0;margin:0">Коллега Влад</h3><div>был в сети недавно</div>''')
-        self.textEdit.setHtml(open('test.html', 'r', encoding='utf-8').read())
-        self.pushButton_2.clicked.connect(self.addUser)
-        self.pushButton_4.clicked.connect(self.openSettings)
-        self.pushButton.clicked.connect(self.send)
-        self.lineEdit.returnPressed.connect(self.send)
+        self.personInfo.setText('''<h3 style="padding:0;margin:0">Коллега Влад</h3><div>был в сети недавно</div>''')
+        self.MessagesList.setHtml(open('test.html', 'r', encoding='utf-8').read())
+        self.findPersonBtn.clicked.connect(self.addUser)
+        self.settingsBtn.clicked.connect(self.openSettings)
+        self.sendMessageBtn.clicked.connect(self.send)
+        self.inputMessage.returnPressed.connect(self.send)
 
     def send(self):
-        self.Login.server.sendMessage(self.lineEdit.text())
+        self.Login.server.sendMessage(self.inputMessage.text())
 
     def updateHtml(self,html):
-        self.textEdit.setHtml(html)
+        self.MessagesList.setHtml(html)
 
     def eventFilter(self, source, event):
-        if event.type() == QEvent.ContextMenu and source is self.listWidget and source.itemAt(event.pos()):
+        if event.type() == QEvent.ContextMenu and source is self.usersList and source.itemAt(event.pos()):
             menu = QMenu()
             blockUser = menu.addAction('Заблокировать')
             clearChat = menu.addAction('Очистить чат')
@@ -140,10 +129,8 @@ class Messenger(QtWidgets.QMainWindow, Ui_messenger.Ui_MainWindow):
         return super().eventFilter(source, event)
 
     def addUser(self):
-        self.textEdit.setHtml(open('test.html', 'r', encoding='utf-8').read())
         msg = QMessageBox()
         msg.setWindowTitle("Добавление пользователя")
-        self.Login.server.sendMessage('Hello')
         ok = 1
 
         if ok: 

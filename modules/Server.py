@@ -17,7 +17,7 @@ class Server:
         self.mainUI.Messenger.updateHtml(signal)
         
     def sendMessage(self,message):
-        self.myThread.sendMessage(message)
+        self.socketThread.sendMessage(message)
 
 class readSocket(QThread):
     threadSignalMain = Qt.pyqtSignal(str)

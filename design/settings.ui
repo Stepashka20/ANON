@@ -36,7 +36,7 @@
      <string>Имя пользователя</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="newNameInput">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -55,7 +55,7 @@
      <string>Степанидзе</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="newScrennNameInput">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -77,7 +77,7 @@
      <string>@Stepashka20</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="saveNewName">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -98,7 +98,7 @@
      <string>Сохранить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="saveNewScrennName">
     <property name="geometry">
      <rect>
       <x>220</x>

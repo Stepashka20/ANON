@@ -14,7 +14,7 @@
    <string>ANON</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="loginRegister">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -36,7 +36,7 @@
      <string>Логин</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="passwordRegister">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -61,7 +61,7 @@
      <string>Пароль</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="registerBtn">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -86,7 +86,7 @@
      <string>Зарегестрироваться</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="screenNameRegister">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -111,7 +111,7 @@
      <string>Имя</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="loginAuthorization">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -130,7 +130,7 @@
      <string>Логин</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="rememberMe">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -148,7 +148,7 @@
      <string>Запомнить меня</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="loginBtn">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -170,7 +170,7 @@
      <string>Войти</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="passwordAuthorization">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -192,7 +192,7 @@
      <string>Пароль</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="registerLabel">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -222,7 +222,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="loginLabel">
     <property name="geometry">
      <rect>
       <x>40</x>
